@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>/board/ - Board Name</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Top board list / header links -->
+<div id="header">
+  <div id="header-links">
+    <strong>Boards</strong>
+    <!-- Add your board links here: <a href="/board/">board</a> -->
+  </div>
+  <div id="header-right">
+    <a href="#">Home</a>
+    <a href="#">FAQ</a>
+    <a href="#">Rules</a>
+  </div>
+</div>
+
+<!-- Board title -->
+<div id="board-banner">
+  <h1>/board/ - Board Name</h1>
+  <h2>Board tagline goes here</h2>
+</div>
+
+<!-- Top nav -->
+<div class="nav-bar">
+  <div class="nav-left">
+    <a href="#">[Index]</a>
+    <a href="#">[Catalog]</a>
+    <a href="#">[Archive]</a>
+    <a href="#">[Search]</a>
+    <a href="#">[Bottom]</a>
+  </div>
+  <div class="nav-right">
+    <a href="#">[Settings]</a>
+    <a href="#">[Home]</a>
+  </div>
+</div>
+
+<div id="page-container">
+
+  <!-- Optional announcement banner -->
+  <div class="board-announcement">
+    Rules / announcement text goes here. <a href="#">Link</a>
+  </div>
+
+  <!-- New thread form -->
+  <div id="reply-form-container">
+    <button class="form-toggle" onclick="document.getElementById('reply-form').classList.toggle('open')">
+      [Start a New Thread]
+    </button>
+    <div id="reply-form">
+      <table>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" name="name" size="25" maxlength="35" placeholder="Anonymous"></td>
+        </tr>
+        <tr>
+          <td>Subject</td>
+          <td>
+            <input type="text" name="sub" size="25" maxlength="100">
+            &nbsp;<input type="submit" value="Submit">
+          </td>
+        </tr>
+        <tr>
+          <td>Comment</td>
+          <td><textarea name="com" cols="48" rows="4"></textarea></td>
+        </tr>
+        <tr>
+          <td>File</td>
+          <td><input type="file" name="upfile"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       THREADS GO HERE
+       Copy this block for each thread:
+
+  <div class="thread" id="t00000001">
+    <div class="op-post clearfix">
+      <div class="op-file">
+        <span class="fileinfo"><a href="#">File: image.jpg</a><br>(100 KB, 800x600)</span>
+        <img src="image.jpg" alt="image">
+      </div>
+      <div>
+        <div class="post-header">
+          <span class="post-subject">Thread Subject</span>
+          &nbsp;<span class="post-name">Anonymous</span>
+          &nbsp;<span class="post-date">01/01/26(Thu)00:00:00</span>
+          &nbsp;<span class="post-num"><a href="#">No.</a><a href="#">00000001</a></span>
+        </div>
+        <div class="post-message">
+          OP text here.<br>
+          <span class="greentext">&gt;greentext like this</span>
+        </div>
+      </div>
+    </div>
+    <div class="thread-stats">
+      <span class="omitted">X replies and Y images omitted.</span>
+      &nbsp;<a href="#">Click here</a> to view.
+    </div>
+    <div class="replies">
+      <div class="reply">
+        <div class="post-header">
+          <span class="post-name">Anonymous</span>
+          &nbsp;<span class="post-date">01/01/26(Thu)00:01:00</span>
+          &nbsp;<span class="post-num"><a href="#">No.00000002</a></span>
+        </div>
+        <div class="post-message">Reply text here.</div>
+      </div>
+    </div>
+  </div>
+  <hr class="thread-divider">
+
+  ════════════════════════════ -->
+
+  <!-- Pagination -->
+  <div class="pagelist">
+    [
+    <span class="current-page">1</span>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    ]
+    &nbsp;
+    <a href="#">[Catalog]</a>
+  </div>
+
+</div>
+
+<!-- Bottom nav -->
+<div class="nav-bar">
+  <div class="nav-left">
+    <a href="#">[Index]</a>
+    <a href="#">[Catalog]</a>
+    <a href="#">[Archive]</a>
+    <a href="#">[Search]</a>
+    <a href="#">[Top]</a>
+  </div>
+  <div class="nav-right">
+    <a href="#">[Settings]</a>
+    <a href="#">[Home]</a>
+  </div>
+</div>
+
+<div id="footer">
+  Your footer text here. &mdash; <a href="#">Rules</a> &mdash; <a href="#">Contact</a>
+</div>
+
+</body>
+</html>
