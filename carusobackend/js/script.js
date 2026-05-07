@@ -63,3 +63,51 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 
 document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+function initTypewriter() {
+  const codeElement = document.getElementById('typewriter-code');
+  if (!codeElement) return;
+
+  const codeText = `function tachyonCompress(data) {
+  const kernel = data.findPivot();
+  return data.expandOutward(kernel, {
+    ratio: "54:1",
+    mode: "middle-out"
+  });
+}`;
+
+  let i = 0;
+  codeElement.innerHTML = ""; // Pulisce il contenuto iniziale
+
+  function type() {
+    if (i < codeText.length) {
+      codeElement.innerHTML += codeText.charAt(i);
+      i++;
+      setTimeout(type, 30); // Velocità di digitazione
+    }
+  }
+
+  // Facciamo partire l'animazione solo quando la finestra è visibile
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      type();
+      observer.disconnect();
+    }
+  });
+  observer.observe(codeElement);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Avvia l'effetto macchina da scrivere
+  initTypewriter();
+  
+  // Riutilizza l'Observer per i counter numerici (se hai messo i numeri animati)
+  const counterEls = document.querySelectorAll('.counter');
+  if(counterEls.length > 0) {
+      // (Il codice counterObserver che abbiamo scritto nel file script.js precedente)
+  }
+  
+  // Riutilizza l'Observer per le classi .reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  revealEls.forEach(el => revealObserver.observe(el));
+});
