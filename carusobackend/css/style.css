@@ -409,3 +409,62 @@ body {
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-delay-1 { transition-delay: 0.10s; }
 .reveal-delay-2 { transition-delay: 0.20s; }
+
+/* ============================================================
+   DOWNLOAD PAGE SPECIFIC
+   ============================================================ */
+.download-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.download-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(22, 163, 74, 0.1);
+  border-color: var(--green-400);
+}
+.os-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: var(--green-600);
+}
+.version-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--green-600);
+  background: var(--green-100);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+.download-btn {
+  margin-top: auto;
+  width: 100%;
+}
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--slate-600);
+}
+.requirements-list li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.requirements-list li::before {
+  content: "✓";
+  color: var(--green-500);
+  font-weight: bold;
+}

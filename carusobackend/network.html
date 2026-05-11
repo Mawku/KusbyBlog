@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Status — Tachyon</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body { background-color: #020617; color: white; }
+    
+    .nav-internal {
+      background: rgba(2, 6, 23, 0.8) !important;
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Hero Network */
+    .network-hero {
+      padding: 160px 0 100px;
+      background: radial-gradient(circle at 50% 0%, #16a34a33 0%, transparent 70%);
+    }
+
+    /* Mappa e Nodi */
+    .map-box {
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 32px;
+      padding: 60px;
+      margin-top: 50px;
+      overflow: hidden;
+    }
+
+    .node-dot {
+      position: absolute;
+      width: 6px; height: 6px;
+      background: var(--green-400);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green-400);
+    }
+
+    /* Calcolatore */
+    .calc-container {
+      background: white;
+      color: var(--slate-900);
+      border-radius: 32px;
+      padding: 50px;
+      margin-top: -60px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+    }
+
+    .stat-pill {
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    /* Tabella Live */
+    .live-table {
+      background: rgba(255,255,255,0.02);
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+    .live-table th { color: var(--green-400); font-family: var(--font-mono); font-weight: 500; border: none; }
+    .live-table td { border-color: rgba(255,255,255,0.05); color: #94a3b8; font-size: 14px; }
+
+    .status-indicator {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--green-400);
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg nav-internal fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="brand-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.8" fill="white"/></svg></div>
+        <span class="brand-name text-white">Tachyon</span>
+      </a>
+      <div class="ms-auto d-flex gap-4">
+        <a href="index.html" class="nav-link text-white opacity-75">Home</a>
+        <a href="technology.html" class="nav-link text-white opacity-75">Tecnologia</a>
+        <a href="story.html" class="nav-link text-white opacity-75">Storia</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="network-hero">
+    <div class="container text-center reveal">
+      <span class="step-num" style="background: rgba(34, 197, 94, 0.1); color: var(--green-400);">Live Status: Operational</span>
+      <h1 class="hero-title text-white mt-3">L'infrastruttura di <br><span class="text-success">nuova generazione.</span></h1>
+      
+      <div class="map-box mt-5">
+        <div class="row align-items-center">
+          <div class="col-lg-4 text-start">
+            <div class="mb-4">
+              <div class="h1 fw-bold mb-0 counter" data-target="12.4">0</div>
+              <div class="small font-monospace text-success">MILIONI DI NODI ATTIVI</div>
+            </div>
+            <div class="mb-4">
+              <div class="h1 fw-bold mb-0 counter" data-target="982">0</div>
+              <div class="small font-monospace text-success">PB DATI PROCESSATI / H</div>
+            </div>
+          </div>
+          <div class="col-lg-8" style="height: 300px; position: relative;">
+             <div class="node-dot" style="top: 20%; left: 10%;"></div>
+             <div class="node-dot" style="top: 40%; left: 30%;"></div>
+             <div class="node-dot" style="top: 15%; left: 50%;"></div>
+             <div class="node-dot" style="top: 60%; left: 80%;"></div>
+             <div class="node-dot" style="top: 80%; left: 40%;"></div>
+             <div class="node-dot" style="top: 30%; left: 70%;"></div>
+             <p class="font-monospace opacity-25 mt-5">GLOBAL P2P MESH VISUALIZATION</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mb-5">
+    <div class="calc-container reveal">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="font-heading fw-bold mb-4">Diventa un Nodo.</h2>
+          <p class="text-muted mb-4">Usa la tua banda inutilizzata e la potenza della tua CPU per alimentare il web. In cambio, ottieni TachyCoins e contribuisci a un internet più pulito.</p>
+          
+          <div class="mb-4">
+            <label class="form-label font-monospace small">VELOCITÀ DI UPLOAD (Mbps)</label>
+            <input type="range" class="form-range" min="10" max="1000" step="10" id="rangeBand">
+            <div class="d-flex justify-content-between small text-muted"><span>10Mbps</span><span id="bandValue">500Mbps</span></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="stat-pill">
+                <div class="small text-muted font-monospace">REWARD MENSILE</div>
+                <div class="h3 fw-bold text-success mt-1">~142 TC</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-pill">
+                <div class="small text-muted font-monospace">CO2 RISPARMIATA</div>
+                <div class="h3 fw-bold text-success mt-1">1.2 KG</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <a href="download.html" class="btn btn-success w-100 py-3 fw-bold rounded-3">Scarica il Client (Beta)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container reveal">
+      <h4 class="font-heading fw-bold mb-4"><span class="status-indicator"></span>Nodi Recenti</h4>
+      <div class="live-table p-4">
+        <table class="table table-dark mb-0">
+          <thead>
+            <tr>
+              <th>NODE ID</th>
+              <th>LOCATION</th>
+              <th>UPTIME</th>
+              <th>TRAFFIC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="4" class="text-center text-secondary py-4">
+                Nessun nodo attivo al momento. Tachyon è ancora in fase di sviluppo.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-5 text-center opacity-50 small font-monospace">
+    © 2026 Tachyon — Decentralized & Encrypted.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

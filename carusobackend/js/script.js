@@ -68,13 +68,22 @@ function initTypewriter() {
   const codeElement = document.getElementById('typewriter-code');
   if (!codeElement) return;
 
-  const codeText = `function tachyonCompress(data) {
-  const kernel = data.findPivot();
-  return data.expandOutward(kernel, {
-    ratio: "54:1",
-    mode: "middle-out"
-  });
-}`;
+ const codeText = `// Inizializzazione Nodo Tachyon (libp2p stack)
+const node = await createLibp2p({
+  addresses: { listen: ['/ip4/0.0.0.0/tcp/0'] },
+  transports: [tcp(), webSockets()],
+  connectionEncryption: [noise()],
+  streamMuxers: [yamux()],
+  peerDiscovery: [bootstrap({
+    list: ["/dnsaddr/bootstrap.tachyon.network"]
+  })],
+  services: {
+    kadDHT: kadDHT(),
+    pubsub: gossipsub()
+  }
+});
+
+console.log('Nodo Mesh attivo:', node.peerId.toString());`;
 
   let i = 0;
   codeElement.innerHTML = ""; // Pulisce il contenuto iniziale
@@ -111,3 +120,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealEls = document.querySelectorAll('.reveal');
   revealEls.forEach(el => revealObserver.observe(el));
 });
+

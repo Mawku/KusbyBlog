@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tachyon — Scarica Alpha 0.1v</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="7.5" stroke="white" stroke-width="1.5" />
+            <circle cx="10" cy="10" r="2.8" fill="white" />
+            <line x1="10" y1="2" x2="10" y2="6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="10" y1="13.5" x2="10" y2="18" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="2" y1="10" x2="6.5" y2="10" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="13.5" y1="10" x2="18" y2="10" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </div>
+        <span class="brand-name">Tachyon</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="technology.html">Come funziona</a></li>
+          <li class="nav-item"><a class="nav-link" href="network.html">Network</a></li>
+          <li class="nav-item"><a class="nav-link" href="tachycoins.html">TachyCoins</a></li>
+          <li class="nav-item"><a class="nav-link" href="story.html">Come siamo nati</a></li>
+        </ul>
+        <a href="download.html" class="nav-link btn-nav-cta ms-lg-3">Scarica Tachyon →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section con sfondo della Index -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-placeholder"></div>
+      <svg class="hero-mountains" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMax slice" style="height:320px;">
+        <polygon points="0,320 150,100 310,190 490,50 680,165 870,30 1050,130 1250,70 1440,145 1440,320"
+          fill="rgba(14,55,28,0.45)" />
+        <polygon points="0,320 100,155 270,215 430,90 590,185 770,65 940,155 1100,95 1280,170 1440,115 1440,320"
+          fill="rgba(10,40,20,0.68)" />
+        <path
+          d="M0,320 Q50,240 100,275 Q150,240 200,275 Q260,225 310,268 Q360,228 420,270 Q475,232 530,270 Q585,230 640,268 Q695,228 750,272 Q805,232 860,268 Q915,228 970,272 Q1025,230 1080,268 Q1135,228 1190,272 Q1245,232 1300,268 Q1360,240 1440,265 L1440,320 Z"
+          fill="rgba(6,22,10,0.88)" />
+      </svg>
+      <div class="hero-particles" id="particles"></div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-10">
+          <div class="hero-badge mx-auto">
+            <div class="hero-badge-dot"></div>
+            <span class="hero-badge-text">Versione Alpha 0.1v · Open Source</span>
+          </div>
+          <h1 class="hero-title">
+            Inizia a navigare <br>nel <span class="accent">nuovo web</span>
+          </h1>
+          <p class="hero-subtitle mx-auto" style="max-width: 600px;">
+            Scegli il tuo sistema operativo e unisciti alla fase Alpha. Partecipando aiuti la rete a crescere in modo
+            sostenibile.
+          </p>
+
+          <!-- Download Cards -->
+          <div class="row g-4 mt-2 justify-content-center">
+
+            <!-- Windows Card -->
+            <div class="col-md-5 text-start">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M0 3.449L9.75 2.1V11.4H0V3.449ZM0 12.6H9.75V21.9L0 20.551V12.6ZM10.95 1.95L24 0V11.4H10.95V1.95ZM10.95 12.6H24V24L10.95 22.05V12.6Z" />
+                  </svg>
+                </div>
+                <h3 class="feature-title" style="color: var(--slate-900);">Windows</h3>
+                <p class="feature-desc">Installatore ottimizzato per Windows 10 e 11.</p>
+                <span class="feature-tag">alpha-0.1v.exe</span>
+                <div class="mt-4">
+                  <a href="#" class="btn-primary-green w-100 justify-content-center">Scarica per Windows</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Debian Card -->
+            <div class="col-md-5 text-start">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <!-- Logo Debian -->
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="#D70A53">
+                    <path
+                      d="M12.002 0c-4.992.001-9.351 3.32-10.871 8.041-1.127 3.518-.68 7.318 1.233 10.457 1.54 2.51 4.012 4.414 6.892 5.166 2.05.534 4.316.398 6.275-.417 2.37-.984 4.354-2.88 5.426-5.185.748-1.594 1.054-3.376 1.042-5.143-.008-2.607-.732-5.234-2.195-7.39C17.962 2.766 15.115.348 12.002 0zm.012 1.488a10.45 10.45 0 013.916.786 10.5 10.5 0 015.688 6.945c.571 2.213.385 4.606-.554 6.702-.693 1.554-1.848 2.898-3.266 3.864a10.5 10.5 0 01-6.101 1.832 10.5 10.5 0 01-7.14-2.85c-1.396-1.354-2.39-3.08-2.825-4.97-.488-2.115-.262-4.4.675-6.353.94-1.956 2.505-3.565 4.436-4.544a10.47 10.47 0 015.171-1.412zm-.397 2.897c-3.13 0-5.744 2.47-5.918 5.61a.744.744 0 00.744.786h.02c.386 0 .713-.293.742-.677.126-1.637 1.29-3.045 2.842-3.468 1.442-.39 3.033.155 3.923 1.344.89 1.189.92 2.851.077 4.073-.728 1.055-2.036 1.597-3.328 1.39a.744.744 0 00-.853.61c-.027.166-.021.334.02.496.066.262.247.48.49.593.414.195.903.228 1.34.113 1.89-.496 3.31-2.072 3.51-4.004.2-1.93-.836-3.805-2.528-4.75a4.34 4.34 0 00-2.09-.544v.418-.418z" />
+                  </svg>
+                </div>
+                <h3 class="feature-title" style="color: var(--slate-900);">Debian / Linux</h3>
+                <p class="feature-desc">Pacchetto .deb compatibile con Debian e Ubuntu.</p>
+                <span class="feature-tag">alpha-0.1v.deb</span>
+                <div class="mt-4">
+                  <a href="#" class="btn-primary-green w-100 justify-content-center">Scarica per Debian</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mt-5 reveal">
+            <p class="section-eyebrow">// Sviluppo trasparente</p>
+            <p class="hero-subtitle mx-auto" style="font-size: 14px;">
+              Il codice sorgente è disponibile su GitHub. Puoi compilare Tachyon autonomamente o contribuire al
+              progetto.
+            </p>
+            <a href="https://github.com/Mawku/KusbyBlog" class="btn-ghost-white mt-2">Repository GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="footer-brand-name">Tachyon</span>
+          </div>
+          <p class="footer-tagline">// Il nuovo internet · open source</p>
+        </div>
+        <div class="col-6 col-md-2">
+          <div class="footer-col-title">Tecnologia dietro Tachyon</div>
+          <ul class="footer-links">
+            <li><a href="technology.html">Come Funziona</a></li>
+            <li><a href="https://github.com/Mawku">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="d-flex justify-content-between">
+        <span class="footer-copyright">© 2026 Tachyon</span>
+        <div class="footer-status">
+          <div class="status-dot"></div> Network Online
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
