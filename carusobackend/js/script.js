@@ -119,5 +119,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // Riutilizza l'Observer per le classi .reveal
   const revealEls = document.querySelectorAll('.reveal');
   revealEls.forEach(el => revealObserver.observe(el));
+
+  // Shortcut segreta (Alt + S)
+  document.addEventListener('keydown', (e) => {
+    if (e.altKey && e.key.toLowerCase() === 's') {
+      // Effetto visivo "glitch" prima di entrare
+      const glitch = document.createElement('div');
+      glitch.style.cssText = `
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center;
+        color: #4ade80; font-family: 'DM Mono', monospace; font-size: 20px;
+      `;
+      glitch.innerHTML = 'INITIALIZING SECURE LINK...';
+      document.body.appendChild(glitch);
+      
+      setTimeout(() => {
+        glitch.innerHTML = 'ACCESS GRANTED';
+        glitch.style.color = '#fff';
+      }, 300);
+
+      setTimeout(() => {
+        window.location.href = 'secret.html';
+      }, 800);
+    }
+  });
 });
 

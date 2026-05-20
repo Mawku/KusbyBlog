@@ -1,129 +1,307 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Network Status — Tachyon</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    body { background-color: #020617; color: white; }
-    
-    .nav-internal {
-      background: rgba(2, 6, 23, 0.8) !important;
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+    /* Integrazioni specifiche per la pagina network (Dark Mode allineata a Tecnologia) */
+    body {
+      background-color: #050505 !important;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
+      color: #ffffff !important;
     }
 
-    /* Hero Network */
+    .nav-internal {
+      background: rgba(0, 0, 0, 0.6) !important;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .nav-internal .brand-name,
+    .nav-internal .nav-link {
+      color: #ffffff !important;
+    }
+
+    .nav-internal .brand-icon svg {
+      stroke: #ffffff !important;
+    }
+
+    .nav-internal .brand-icon svg circle {
+      fill: #ffffff !important;
+    }
+
     .network-hero {
       padding: 160px 0 100px;
-      background: radial-gradient(circle at 50% 0%, #16a34a33 0%, transparent 70%);
+      background: transparent !important;
+    }
+
+    /* Forza assolutamente tutti i testi, titoli, accenti e paragrafi a essere bianchi con altissima specificità */
+    body,
+    body .hero-title,
+    body .hero-title .accent,
+    body .section-title,
+    body .feature-title,
+    body .brand-name,
+    body h1,
+    body h2,
+    body h3,
+    body h4,
+    body h5,
+    body h6,
+    body p,
+    body span,
+    body strong,
+    body label,
+    body td,
+    body th {
+      color: #ffffff !important;
+    }
+
+    body .network-hero .hero-title,
+    body .network-hero .hero-title .accent {
+      color: #ffffff !important;
+    }
+
+    /* Grado di trasparenza per i testi secondari/mutati per un design premium */
+    body .hero-subtitle,
+    body .text-secondary,
+    body .feature-desc,
+    body .section-eyebrow,
+    body .text-muted,
+    body .opacity-75,
+    body .opacity-50,
+    body small,
+    body .small,
+    body .live-table td {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    body .opacity-25 {
+      color: rgba(255, 255, 255, 0.35) !important;
+    }
+
+    /* Verde neon ad alta specificità per i valori dinamici e lo stato */
+    body .text-success,
+    body .text-success *,
+    body #rewardValue,
+    body #co2Value,
+    body .counter {
+      color: #4ade80 !important;
     }
 
     /* Mappa e Nodi */
     .map-box {
       position: relative;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
       padding: 60px;
       margin-top: 50px;
       overflow: hidden;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5) !important;
     }
 
     .node-dot {
       position: absolute;
-      width: 6px; height: 6px;
-      background: var(--green-400);
-      border-radius: 50%;
-      box-shadow: 0 0 12px var(--green-400);
+      width: 8px;
+      height: 8px;
+      background: #4ade80 !important;
+      border-radius: 50% !important;
+      box-shadow: 0 0 12px #4ade80 !important;
     }
 
     /* Calcolatore */
     .calc-container {
-      background: white;
-      color: var(--slate-900);
-      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
       padding: 50px;
       margin-top: -60px;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5) !important;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .calc-container h2,
+    .calc-container label {
+      color: #ffffff !important;
+    }
+
+    .calc-container p,
+    .calc-container .text-muted {
+      color: rgba(255, 255, 255, 0.7) !important;
     }
 
     .stat-pill {
-      background: #f1f5f9;
+      background: rgba(255, 255, 255, 0.03) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
       padding: 20px;
-      border-radius: 16px;
       text-align: center;
+    }
+
+    .stat-pill .text-muted {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    .stat-pill .text-success {
+      color: #4ade80 !important;
+    }
+
+    .form-range::-webkit-slider-runnable-track {
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .form-range::-webkit-slider-thumb {
+      background: #ffffff !important;
     }
 
     /* Tabella Live */
     .live-table {
-      background: rgba(255,255,255,0.02);
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       overflow: hidden;
     }
-    .live-table th { color: var(--green-400); font-family: var(--font-mono); font-weight: 500; border: none; }
-    .live-table td { border-color: rgba(255,255,255,0.05); color: #94a3b8; font-size: 14px; }
+
+    .live-table table {
+      background: transparent !important;
+    }
+
+    .live-table tr,
+    .live-table th,
+    .live-table td {
+      background: transparent !important;
+    }
+
+    .live-table th {
+      color: #ffffff !important;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      border: none;
+    }
+
+    .live-table td {
+      border-color: rgba(255, 255, 255, 0.05) !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+      font-size: 14px;
+    }
 
     .status-indicator {
       display: inline-block;
-      width: 8px; height: 8px;
-      background: var(--green-400);
+      width: 8px;
+      height: 8px;
+      background: #4ade80 !important;
       border-radius: 50%;
       margin-right: 8px;
+      box-shadow: 0 0 8px #4ade80 !important;
       animation: blink 1.5s infinite;
     }
 
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .btn-success {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #ffffff !important;
+      transition: var(--transition) !important;
+    }
+
+    .btn-success:hover {
+      background: rgba(255, 255, 255, 0.9) !important;
+      color: #000000 !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-box {
+      border-left: 2px solid #ffffff !important;
+      padding-left: 20px;
+    }
+
+    .footer {
+      background: transparent !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    .footer-tagline {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <nav class="navbar navbar-expand-lg nav-internal fixed-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <div class="brand-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="white" stroke-width="1.5"/><circle cx="10" cy="10" r="2.8" fill="white"/></svg></div>
-        <span class="brand-name text-white">Tachyon</span>
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="7.5" stroke="white" stroke-width="1.5" />
+            <circle cx="10" cy="10" r="2.8" fill="white" />
+          </svg>
+        </div>
+        <span class="brand-name">Tachyon</span>
       </a>
       <div class="ms-auto d-flex gap-4">
-        <a href="index.html" class="nav-link text-white opacity-75">Home</a>
-        <a href="technology.html" class="nav-link text-white opacity-75">Tecnologia</a>
-        <a href="story.html" class="nav-link text-white opacity-75">Storia</a>
+        <a href="index.html" class="nav-link fw-medium">Home</a>
+        <a href="technology.html" class="nav-link fw-medium">Tecnologia</a>
+        <a href="network.html" class="nav-link fw-medium">Network</a>
+        <a href="tachycoins.html" class="nav-link fw-medium">TachyCoins</a>
+        <a href="story.html" class="nav-link fw-medium">Storia</a>
       </div>
     </div>
   </nav>
 
   <section class="network-hero">
     <div class="container text-center reveal">
-      <span class="step-num" style="background: rgba(34, 197, 94, 0.1); color: var(--green-400);">Live Status: Operational</span>
-      <h1 class="hero-title text-white mt-3">L'infrastruttura di <br><span class="text-success">nuova generazione.</span></h1>
-      
+      <p class="section-eyebrow">// Live Status: Operational</p>
+      <h1 class="hero-title mt-3">L'infrastruttura di <br><span class="accent">nuova generazione.</span></h1>
+
       <div class="map-box mt-5">
         <div class="row align-items-center">
           <div class="col-lg-4 text-start">
-            <div class="mb-4">
-              <div class="h1 fw-bold mb-0 counter" data-target="12.4">0</div>
-              <div class="small font-monospace text-success">MILIONI DI NODI ATTIVI</div>
+            <div class="mb-4 stat-box">
+              <div class="h1 fw-bold mb-0 text-success"><span class="counter" data-target="6">0</span></div>
+              <div class="small text-uppercase font-monospace text-muted">nodi attivi</div>
             </div>
-            <div class="mb-4">
-              <div class="h1 fw-bold mb-0 counter" data-target="982">0</div>
-              <div class="small font-monospace text-success">PB DATI PROCESSATI / H</div>
+            <div class="mb-4 stat-box">
+              <div class="h1 fw-bold mb-0 text-success"><span class="counter" data-target="436">0</span> GB</div>
+              <div class="small text-uppercase font-monospace text-muted">Dati processati / ora</div>
             </div>
           </div>
           <div class="col-lg-8" style="height: 300px; position: relative;">
-             <div class="node-dot" style="top: 20%; left: 10%;"></div>
-             <div class="node-dot" style="top: 40%; left: 30%;"></div>
-             <div class="node-dot" style="top: 15%; left: 50%;"></div>
-             <div class="node-dot" style="top: 60%; left: 80%;"></div>
-             <div class="node-dot" style="top: 80%; left: 40%;"></div>
-             <div class="node-dot" style="top: 30%; left: 70%;"></div>
-             <p class="font-monospace opacity-25 mt-5">GLOBAL P2P MESH VISUALIZATION</p>
+            <div class="node-dot" style="top: 20%; left: 10%;"></div>
+            <div class="node-dot" style="top: 40%; left: 30%;"></div>
+            <div class="node-dot" style="top: 15%; left: 50%;"></div>
+            <div class="node-dot" style="top: 60%; left: 80%;"></div>
+            <div class="node-dot" style="top: 80%; left: 40%;"></div>
+            <div class="node-dot" style="top: 30%; left: 70%;"></div>
+            <p class="font-monospace opacity-25 mt-5">GLOBAL P2P MESH VISUALIZATION</p>
           </div>
         </div>
       </div>
@@ -135,12 +313,16 @@
       <div class="row g-5 align-items-center">
         <div class="col-lg-6">
           <h2 class="font-heading fw-bold mb-4">Diventa un Nodo.</h2>
-          <p class="text-muted mb-4">Usa la tua banda inutilizzata e la potenza della tua CPU per alimentare il web. In cambio, ottieni TachyCoins e contribuisci a un internet più pulito.</p>
-          
+          <p class="text-muted mb-4">Usa la tua banda inutilizzata e la potenza della tua CPU per alimentare il web. In
+            cambio, ottieni TachyCoins e contribuisci a un internet più pulito.</p>
+
           <div class="mb-4">
             <label class="form-label font-monospace small">VELOCITÀ DI UPLOAD (Mbps)</label>
-            <input type="range" class="form-range" min="10" max="1000" step="10" id="rangeBand">
-            <div class="d-flex justify-content-between small text-muted"><span>10Mbps</span><span id="bandValue">500Mbps</span></div>
+            <input type="range" class="form-range" min="10" max="1000" step="10" id="rangeBand" value="500">
+            <div class="d-flex justify-content-between small text-muted">
+              <span>10Mbps</span>
+              <span id="bandValue">500Mbps</span>
+            </div>
           </div>
         </div>
         <div class="col-lg-6">
@@ -148,17 +330,17 @@
             <div class="col-6">
               <div class="stat-pill">
                 <div class="small text-muted font-monospace">REWARD MENSILE</div>
-                <div class="h3 fw-bold text-success mt-1">~142 TC</div>
+                <div class="h3 fw-bold text-success mt-1" id="rewardValue">~142 TC</div>
               </div>
             </div>
             <div class="col-6">
               <div class="stat-pill">
                 <div class="small text-muted font-monospace">CO2 RISPARMIATA</div>
-                <div class="h3 fw-bold text-success mt-1">1.2 KG</div>
+                <div class="h3 fw-bold text-success mt-1" id="co2Value">1.2 KG</div>
               </div>
             </div>
             <div class="col-12">
-              <a href="download.html" class="btn btn-success w-100 py-3 fw-bold rounded-3">Scarica il Client (Beta)</a>
+              <a href="download.html" class="btn btn-success w-100 py-3 fw-bold">Scarica il Client (Beta)</a>
             </div>
           </div>
         </div>
@@ -170,7 +352,7 @@
     <div class="container reveal">
       <h4 class="font-heading fw-bold mb-4"><span class="status-indicator"></span>Nodi Recenti</h4>
       <div class="live-table p-4">
-        <table class="table table-dark mb-0">
+        <table class="table mb-0">
           <thead>
             <tr>
               <th>NODE ID</th>
@@ -191,11 +373,42 @@
     </div>
   </section>
 
-  <footer class="py-5 text-center opacity-50 small font-monospace">
-    © 2026 Tachyon — Decentralized & Encrypted.
+  <footer class="footer">
+    <div class="container text-center">
+      <p class="footer-tagline">© 2026 Tachyon — Decentralized & Encrypted.</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rangeBand = document.getElementById('rangeBand');
+      const bandValue = document.getElementById('bandValue');
+      const rewardVal = document.getElementById('rewardValue');
+      const co2Val = document.getElementById('co2Value');
+
+      const updateCalculator = () => {
+        const val = parseInt(rangeBand.value);
+        bandValue.textContent = `${val}Mbps`;
+
+        // Calculate dynamic values
+        const reward = Math.round(val * 0.284);
+        const co2 = (val * 0.0024).toFixed(1);
+
+        // Update elements
+        if (rewardVal) rewardVal.textContent = `~${reward} TC`;
+        if (co2Val) co2Val.textContent = `${co2} KG`;
+      };
+
+      if (rangeBand) {
+        rangeBand.addEventListener('input', updateCalculator);
+        // Run once on load
+        updateCalculator();
+      }
+    });
+  </script>
 </body>
+
 </html>
